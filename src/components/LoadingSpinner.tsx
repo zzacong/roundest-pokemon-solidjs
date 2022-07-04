@@ -1,0 +1,18 @@
+import Rings from '../assets/rings.svg'
+
+interface LoadingSpinnerProps {
+  message?: string
+}
+
+export default function LoadingSpinner({ message }: LoadingSpinnerProps) {
+  return (
+    <div class="grid h-96 place-items-center">
+      <div class="flex flex-col items-center gap-y-10">
+        <div class="h-40 w-40">
+          <img src={Rings} class="w-48 h-48" />
+        </div>
+        <p class="text-center font-mono text-3xl">{message}</p>
+      </div>
+    </div>
+  )
+}
