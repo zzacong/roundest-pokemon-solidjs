@@ -6,10 +6,10 @@ interface LoadingSpinnerProps {
 
 export default function LoadingSpinner({ message }: LoadingSpinnerProps) {
   return (
-    <div class="grid h-96 place-items-center">
+    <div class="grid h-[274px] place-items-center">
       <div class="flex flex-col items-center gap-y-10">
         <div class="h-40 w-40">
-          <img src={Rings} class="w-48 h-48" />
+          <img src={Rings} class="w-40 h-40" />
         </div>
         <p class="text-center font-mono text-3xl">{message}</p>
       </div>
