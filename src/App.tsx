@@ -1,14 +1,42 @@
-import { createTrpcQuery } from './lib/trpc'
+import { Show } from 'solid-js'
+import { LoadingSpinner, PokemonVoting } from './components'
+import { createTrpcMutation, createTrpcQuery } from './lib/trpc'
 
 export default function App() {
   const [pair, { refetch }] = createTrpcQuery('get-pokemon-pair')
+  const { mutate } = createTrpcMutation('cast-vote')
+
+  const voteForRoundest = (selected: number, against: number) => () => {
+    mutate({ votedFor: selected, votedAgainst: against })
+    refetch()
+  }
 
   return (
-    <div class="text-center">
-      <header class="flex flex-col min-h-screen justify-center items-center px-10">
-        <h1 class="text-5xl font-extrabold">Hello Solid.js</h1>
-        <code class="break-all font-mono">{JSON.stringify(pair())}</code>
-      </header>
+    <div class="flex grow flex-col items-center justify-center px-6 pt-16">
+      <h1 class="mb-12 text-center text-lg font-bold md:text-2xl lg:mb-20 lg:text-4xl">
+        Which Pokemon is Roundest?
+      </h1>
+
+      <Show when={pair()} fallback={<LoadingSpinner />}>
+        {({ firstPokemon, secondPokemon }) => (
+          <div class="flex max-w-2xl flex-col items-center justify-between gap-6 rounded border py-8 px-8 md:flex-row lg:gap-10 lg:px-16">
+            <PokemonVoting
+              pokemon={firstPokemon}
+              vote={voteForRoundest(firstPokemon.id, secondPokemon.id)}
+              // disabled={voteMutation.isLoading || isLoading}
+            />
+            <div class="font-mono text-2xl">VS</div>
+            <PokemonVoting
+              pokemon={secondPokemon}
+              vote={voteForRoundest(secondPokemon.id, firstPokemon.id)}
+              // disabled={voteMutation.isLoading || isLoading}
+            />
+          </div>
+        )}
+      </Show>
     </div>
   )
 }
+
+// ) : !pair() ? (
+//   <LoadingSpinner message="no pokemon to show" />
