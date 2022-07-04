@@ -14,10 +14,13 @@ export default function App() {
   return (
     <div class="flex grow flex-col items-center justify-center px-6 pt-16">
       <h1 class="mb-12 text-center text-lg font-bold md:text-2xl lg:mb-20 lg:text-4xl">
-        Which Pokemon is Roundest? {String(pair.loading)}
+        Which Pokemon is Roundest?
       </h1>
 
       <Switch fallback={<LoadingSpinner />}>
+        <Match when={pair.loading}>
+          <LoadingSpinner />
+        </Match>
         <Match when={!pair.loading && !pair()}>
           <LoadingSpinner message="no pokemon to show" />
         </Match>

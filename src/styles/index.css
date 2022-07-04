@@ -6,4 +6,8 @@
   body {
     @apply text-gray-100 bg-gray-800;
   }
+
+  #root {
+    @apply flex min-h-screen flex-col;
+  }
 }
