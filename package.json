@@ -15,11 +15,8 @@
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "devDependencies": {
-    "@types/glob": "^7.2.0",
     "@types/node": "^18.0.1",
-    "@vercel/frameworks": "^1.0.2",
     "@vercel/node": "^2.3.3",
-    "@vercel/routing-utils": "^1.13.5",
     "autoprefixer": "^10.4.7",
     "pokenode-ts": "^1.14.0",
     "postcss": "^8.4.14",
@@ -33,6 +30,7 @@
   "dependencies": {
     "@prisma/client": "^4.0.0",
     "@trpc/client": "^9.25.3",
+    "@trpc/next": "^9.25.3",
     "@trpc/server": "^9.25.3",
     "prisma": "^4.0.0",
     "solid-js": "^1.4.2",
