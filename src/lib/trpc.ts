@@ -1,5 +1,5 @@
 import type { inferHandlerInput, inferProcedureOutput } from '@trpc/server'
-import type { AppRouter } from '../../api/trpc/[trpc]'
+import type { AppRouter } from '../../server/router'
 
 import { createTRPCClient } from '@trpc/client'
 import { createResource } from 'solid-js'
