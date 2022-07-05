@@ -1,4 +1,5 @@
 import type { PokemonQueryResult } from '../../server/utils'
+import { generateCountPercent } from '../lib/utils'
 
 interface PokemonListingProps {
   pokemon: PokemonQueryResult[number]
@@ -26,11 +27,4 @@ export default function PokemonListing({ pokemon, rank }: PokemonListingProps) {
       </div>
     </div>
   )
-}
-
-export const generateCountPercent = (pokemon: PokemonQueryResult[number]) => {
-  const { voteFor, voteAgainst } = pokemon._count
-  const total = voteFor + voteAgainst
-  if (total === 0) return 0
-  return (voteFor / total) * 100
 }

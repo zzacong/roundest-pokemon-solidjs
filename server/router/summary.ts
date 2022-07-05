@@ -1,14 +1,13 @@
 import type { inferAsyncReturnType } from '@trpc/server'
-import { getPokemon } from '../utils'
+import { getPokemonInOrder } from '../utils'
 import { createRouter } from './context'
 
 // this is cached
 export const summaryRouter = createRouter().query('get-summary', {
   async resolve({ ctx }) {
-    const allPokemon = await getPokemon(ctx.prisma)
-
-    return allPokemon
+    const pokemonOrdered = await getPokemonInOrder(ctx.prisma)
+    return pokemonOrdered
   },
 })
 
-export type PokemonQueryResult = inferAsyncReturnType<typeof getPokemon>
+export type PokemonQueryResult = inferAsyncReturnType<typeof getPokemonInOrder>
