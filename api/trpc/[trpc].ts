@@ -9,7 +9,7 @@ export default createNextApiHandler({
   createContext: createContext as any,
   responseMeta({ ctx, paths, type, errors }) {
     // assuming you have all your public routes with the kewyord `public` in them
-    const allPublic = paths && paths.every(path => path.includes('public'))
+    const allPublic = paths && paths.every(path => path.includes('summary'))
     // checking that no procedures errored
     const allOk = errors.length === 0
     // checking we're doing a query request
