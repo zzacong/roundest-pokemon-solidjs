@@ -1,7 +1,7 @@
+import type { PrismaClient } from '@prisma/client'
 import type { inferAsyncReturnType } from '@trpc/server'
-import { prisma } from '../db/prisma'
 
-export const getPokemon = () =>
+export const getPokemon = (prisma: PrismaClient) =>
   prisma.pokemon.findMany({
     include: {
       _count: {
