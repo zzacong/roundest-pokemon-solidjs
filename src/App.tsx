@@ -4,6 +4,7 @@ import { createTrpcMutation, createTrpcQuery } from './lib/trpc'
 
 export default function App() {
   const [pair, { refetch }] = createTrpcQuery('get-pokemon-pair')
+  const [data] = createTrpcQuery('get-summary')
   const { mutate } = createTrpcMutation('cast-vote')
 
   const voteForRoundest = (selected: number, against: number) => () => {
@@ -16,6 +17,8 @@ export default function App() {
       <h1 class="mb-12 text-center text-lg font-bold md:text-2xl lg:mb-20 lg:text-4xl">
         Which Pokemon is Roundest?
       </h1>
+
+      <code>{JSON.stringify(data()?.length)}</code>
 
       <Switch fallback={<LoadingSpinner />}>
         <Match when={pair.loading}>
