@@ -8,16 +8,18 @@ export default createNextApiHandler({
   router: appRouter,
   createContext: createContext as any,
   responseMeta({ ctx, paths, type, errors }) {
-    // assuming you have all your public routes with the kewyord `public` in them
+    // assuming you have all your public routes with the keyword `public` in them
     const allPublic = paths && paths.every(path => path.includes('summary'))
     // checking that no procedures errored
     const allOk = errors.length === 0
     // checking we're doing a query request
     const isQuery = type === 'query'
 
+    console.log(ctx?.res, allPublic, allOk, isQuery)
     if (ctx?.res && allPublic && allOk && isQuery) {
       // cache request for 1 day
       const DAY_IN_SECONDS = 60 * 60 * 24
+      console.log('yoink')
       return {
         headers: {
           'cache-control': `s-maxage=${DAY_IN_SECONDS}, stale-while-revalidate=${DAY_IN_SECONDS}`,
