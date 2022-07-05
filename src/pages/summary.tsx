@@ -1,11 +1,12 @@
+import type { SummaryData } from './summary.data'
+import { useRouteData } from 'solid-app-router'
 import { For } from 'solid-js'
 import { PokemonRanking } from '../components'
-import { createTrpcQuery } from '../lib/trpc'
 
 const pageTitle = 'Summary | Roundest Pokémon'
 
 export default function SummaryPage() {
-  const [pokemon] = createTrpcQuery('get-summary')
+  const pokemon = useRouteData<ReturnType<typeof SummaryData>>()
 
   return (
     <>
