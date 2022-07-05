@@ -17,10 +17,10 @@ export default createNextApiHandler({
 
     if (ctx?.res && allPublic && allOk && isQuery) {
       // cache request for 1 day
-      const DAY_IN_SECONDS = 60 * 60 * 24
+      const ONE_MINUTE = 60
       return {
         headers: {
-          'cache-control': `s-maxage=${DAY_IN_SECONDS}, stale-while-revalidate=${DAY_IN_SECONDS}`,
+          'cache-control': `s-maxage=${ONE_MINUTE}, stale-while-revalidate=${ONE_MINUTE}`,
         },
       }
     }
