@@ -34,6 +34,7 @@
     "@trpc/server": "^9.25.3",
     "clsx": "^1.2.0",
     "prisma": "^4.0.0",
+    "solid-app-router": "^0.4.1",
     "solid-js": "^1.4.2",
     "zod": "^3.17.3"
   }

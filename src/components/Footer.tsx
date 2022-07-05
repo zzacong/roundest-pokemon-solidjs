@@ -1,3 +1,5 @@
+import { NavLink } from 'solid-app-router'
+
 export default function Footer() {
   return (
     <footer class="py-6">
@@ -11,12 +13,13 @@ export default function Footer() {
           Source code
         </a>
         <span>|</span>
-        <a
+        <NavLink
+          end
           href="/summary"
           class="text-base font-semibold hover:underline hover:opacity-80"
         >
           View summary
-        </a>
+        </NavLink>
       </nav>
     </footer>
   )
