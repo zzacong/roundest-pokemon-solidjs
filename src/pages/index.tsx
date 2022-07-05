@@ -2,7 +2,7 @@ import { Switch, Match } from 'solid-js'
 import { LoadingSpinner, PokemonVoting } from '../components'
 import { createTrpcQuery, createTrpcMutation } from '../lib/trpc'
 
-export default function VotePage() {
+export default function HomePage() {
   const [pair, { refetch }] = createTrpcQuery('get-pokemon-pair')
   const { mutate } = createTrpcMutation('cast-vote')
 

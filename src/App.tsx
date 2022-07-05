@@ -2,8 +2,8 @@ import { Route, Routes } from 'solid-app-router'
 import { lazy } from 'solid-js'
 import { Footer, Header } from './components'
 
-const VotePage = lazy(() => import('./pages/VotePage'))
-const SummaryPage = lazy(() => import('./pages/SummaryPage'))
+const HomePage = lazy(() => import('./pages'))
+const SummaryPage = lazy(() => import('./pages/summary'))
 
 export default function App() {
   return (
@@ -11,7 +11,7 @@ export default function App() {
       <Header />
       <Routes>
         <Route path="/summary" element={<SummaryPage />} />
-        <Route path="/" element={<VotePage />} />
+        <Route path="/" element={<HomePage />} />
       </Routes>
       <Footer />
     </>
