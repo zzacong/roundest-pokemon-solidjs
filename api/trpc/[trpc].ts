@@ -15,11 +15,9 @@ export default createNextApiHandler({
     // checking we're doing a query request
     const isQuery = type === 'query'
 
-    console.log(ctx?.res, allPublic, allOk, isQuery)
     if (ctx?.res && allPublic && allOk && isQuery) {
       // cache request for 1 day
       const DAY_IN_SECONDS = 60 * 60 * 24
-      console.log('yoink')
       return {
         headers: {
           'cache-control': `s-maxage=${DAY_IN_SECONDS}, stale-while-revalidate=${DAY_IN_SECONDS}`,
