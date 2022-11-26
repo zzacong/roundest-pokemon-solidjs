@@ -1,14 +1,19 @@
 import { Switch, Match } from 'solid-js'
 import { LoadingSpinner, PokemonVoting } from '../components'
-import { createTrpcQuery, createTrpcMutation } from '../lib/trpc'
+import { trpc } from '../lib/trpc'
 
 export default function HomePage() {
-  const [pair, { refetch }] = createTrpcQuery('get-pokemon-pair')
-  const { mutate } = createTrpcMutation('cast-vote')
+  const pair = trpc.pokemon.getPokemonPair.useQuery(undefined, {
+    refetchOnMount: false,
+    refetchInterval: false,
+    refetchOnReconnect: false,
+    refetchOnWindowFocus: false,
+  })
+  const { mutate } = trpc.pokemon.castVote.useMutation()
 
   const voteForRoundest = (selected: number, against: number) => () => {
     mutate({ votedFor: selected, votedAgainst: against })
-    refetch()
+    pair.refetch()
   }
 
   return (
@@ -17,14 +22,16 @@ export default function HomePage() {
         Which Pokemon is Roundest?
       </h1>
 
-      <Switch fallback={<LoadingSpinner />}>
-        <Match when={pair.loading}>
+      <Switch>
+        <Match when={pair.isLoading}>
           <LoadingSpinner />
         </Match>
-        <Match when={!pair.loading && !pair()}>
+
+        <Match when={!pair.isLoading && !pair.data}>
           <LoadingSpinner message="no pokemon to show" />
         </Match>
-        <Match when={pair()}>
+
+        <Match when={pair.data} keyed>
           {({ firstPokemon, secondPokemon }) => (
             <div class="flex max-w-2xl flex-col items-center justify-between gap-6 rounded border py-8 px-8 md:flex-row lg:gap-10 lg:px-16">
               <PokemonVoting

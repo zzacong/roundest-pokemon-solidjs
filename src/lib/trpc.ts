@@ -1,38 +1,29 @@
-import type { inferHandlerInput, inferProcedureOutput } from '@trpc/server'
-import type { AppRouter } from '../../server/router'
+import type { inferRouterInputs, inferRouterOutputs } from '@trpc/server'
+import type { AppRouter } from '../../server/trpc/router/_app'
 
-import { createTRPCClient } from '@trpc/client'
-import { createResource } from 'solid-js'
+import { createTRPCSolid } from 'solid-trpc'
+import { httpBatchLink } from '@trpc/client'
+import { QueryClient } from '@tanstack/solid-query'
 
-export const trpcClient = createTRPCClient<AppRouter>({ url: '/api/trpc' })
+export const trpc = createTRPCSolid<AppRouter>()
 
-type AppQueries = AppRouter['_def']['queries']
-type AppQueryKeys = keyof AppQueries & string
+export const trpcClient = trpc.createClient({
+  links: [
+    httpBatchLink({
+      url: '/api/trpc',
+    }),
+  ],
+})
 
-type AppMutations = AppRouter['_def']['mutations']
-type AppMutationKeys = keyof AppMutations & string
+export const queryClient = new QueryClient()
 
-export const createTrpcQuery = <TPath extends AppQueryKeys>(
-  path: TPath,
-  ...args: inferHandlerInput<AppQueries[TPath]>
-) => {
-  const fetchData = async () => {
-    return trpcClient.query(path, ...(args as any))
-  }
-
-  return createResource(fetchData)
-}
-
-export const createTrpcMutation = <TPath extends AppMutationKeys>(
-  path: TPath
-) => {
-  const fetchData = async (...args: inferHandlerInput<AppMutations[TPath]>) => {
-    return trpcClient.mutation(path, ...(args as any))
-  }
-
-  return { mutate: fetchData }
-}
-
-export type inferQueryResponse<
-  TRouteKey extends keyof AppRouter['_def']['queries']
-> = inferProcedureOutput<AppRouter['_def']['queries'][TRouteKey]>
+/**
+ * Inference helper for inputs
+ * @example type HelloInput = RouterInputs['example']['hello']
+ **/
+export type RouterInputs = inferRouterInputs<AppRouter>
+/**
+ * Inference helper for outputs
+ * @example type HelloOutput = RouterOutputs['example']['hello']
+ **/
+export type RouterOutputs = inferRouterOutputs<AppRouter>

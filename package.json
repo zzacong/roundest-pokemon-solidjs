@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "description": "",
   "scripts": {
-    "start": "vite --port 3000",
-    "dev": "vite --port 3000",
+    "start": "vite",
+    "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview --port 3000",
+    "serve": "vite preview",
     "typecheck": "tsc --noEmit",
     "postinstall": "prisma generate"
   },
@@ -14,28 +14,30 @@
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
-  "devDependencies": {
-    "@types/node": "^18.0.1",
-    "@vercel/node": "^2.3.3",
-    "autoprefixer": "^10.4.7",
-    "pokenode-ts": "^1.14.0",
-    "postcss": "^8.4.14",
-    "prettier-plugin-tailwindcss": "^0.1.11",
-    "prisma": "^4.0.0",
-    "tailwindcss": "^3.1.4",
-    "ts-node": "^10.8.2",
-    "typescript": "^4.6.4",
-    "vite": "^2.9.9",
-    "vite-plugin-solid": "^2.2.6"
-  },
   "dependencies": {
-    "@prisma/client": "^4.0.0",
-    "@trpc/client": "^9.25.3",
-    "@trpc/next": "^9.25.3",
-    "@trpc/server": "^9.25.3",
-    "clsx": "^1.2.0",
-    "solid-app-router": "^0.4.1",
-    "solid-js": "^1.4.2",
-    "zod": "^3.17.3"
+    "@prisma/client": "^4.6.1",
+    "@solidjs/router": "^0.5.1",
+    "@tanstack/solid-query": "^4.15.1",
+    "@trpc/client": "^10.2.0",
+    "@trpc/next": "^10.2.0",
+    "@trpc/server": "^10.2.0",
+    "clsx": "^1.2.1",
+    "solid-js": "^1.6.2",
+    "solid-trpc": "0.0.11-rc.2",
+    "zod": "^3.19.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.9",
+    "@vercel/node": "^2.6.4",
+    "autoprefixer": "^10.4.13",
+    "pokenode-ts": "^1.17.0",
+    "postcss": "^8.4.19",
+    "prettier-plugin-tailwindcss": "^0.2.0",
+    "prisma": "^4.6.1",
+    "tailwindcss": "^3.2.4",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.3",
+    "vite": "^3.2.4",
+    "vite-plugin-solid": "^2.4.0"
   }
 }

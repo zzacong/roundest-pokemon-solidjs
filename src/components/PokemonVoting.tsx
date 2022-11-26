@@ -1,7 +1,7 @@
-import type { inferQueryResponse } from '../lib/trpc'
+import type { RouterOutputs } from '../lib/trpc'
 import clsx from 'clsx'
 
-type PokemonFromServer = inferQueryResponse<'get-pokemon-by-id'>
+type PokemonFromServer = RouterOutputs['pokemon']['getPokemonById']
 interface PokemonVotingProps {
   pokemon: PokemonFromServer
   disabled?: boolean

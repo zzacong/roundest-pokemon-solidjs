@@ -1,6 +1,6 @@
 import type { SummaryData } from './summary.data'
-import { For, Show } from 'solid-js'
-import { useRouteData } from 'solid-app-router'
+import { For, Match, Show, Switch } from 'solid-js'
+import { useRouteData } from '@solidjs/router'
 import { LoadingSpinner, PokemonRanking } from '../components'
 
 const pageTitle = 'Summary | Roundest Pokémon'
@@ -17,21 +17,26 @@ export default function SummaryPage() {
 
         <h3 class="mb-16 text-center text-xl">
           Total pokemon:{' '}
-          <span class="font-mono font-bold">{pokemon()?.length}</span>
+          <span class="font-mono font-bold">{pokemon.data?.length}</span>
         </h3>
 
-        <Show
-          when={!pokemon.loading && pokemon()}
-          fallback={<LoadingSpinner />}
-        >
-          {data => (
+        <Switch>
+          <Match when={pokemon.isLoading}>
+            <LoadingSpinner />
+          </Match>
+
+          <Match when={pokemon.isError}>
+            <p>Error: {pokemon.error?.message}</p>
+          </Match>
+
+          <Match when={pokemon.isSuccess}>
             <div class="mx-auto w-full max-w-2xl border">
-              <For each={data}>
+              <For each={pokemon.data}>
                 {(p, i) => <PokemonRanking pokemon={p} rank={i() + 1} />}
               </For>
             </div>
-          )}
-        </Show>
+          </Match>
+        </Switch>
       </div>
     </>
   )

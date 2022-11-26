@@ -1,4 +1,4 @@
-import type { PokemonQueryResult } from '../../server/router/summary'
+import type { PokemonQueryResult } from '../../server/trpc/router/summary'
 
 export const generateCountPercent = (pokemon: PokemonQueryResult[number]) => {
   const { voteFor, voteAgainst } = pokemon._count

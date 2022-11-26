@@ -1,12 +1,12 @@
 import { createNextApiHandler } from '@trpc/server/adapters/next'
 
-import { appRouter } from '../../server/router'
-import { createContext } from '../../server/router/context'
+import { appRouter } from '../../server/trpc/router/_app'
+import { createContext } from '../../server/trpc/context'
 
 // export API handler
 export default createNextApiHandler({
   router: appRouter,
-  createContext: createContext as any,
+  createContext,
   responseMeta({ ctx, paths, type, errors }) {
     // assuming you have all your public routes with the keyword `public` in them
     const allPublic = paths && paths.every(path => path.includes('summary'))

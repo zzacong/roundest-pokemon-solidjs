@@ -1,6 +1,11 @@
-import { createTrpcQuery } from '../lib/trpc'
+import { trpc } from '../lib/trpc'
 
 export function SummaryData() {
-  const [pokemon] = createTrpcQuery('get-summary')
-  return pokemon
+  const res = trpc.summary.getSummary.useQuery(undefined, {
+    refetchOnMount: false,
+    refetchInterval: false,
+    refetchOnReconnect: false,
+    refetchOnWindowFocus: false,
+  })
+  return res
 }
