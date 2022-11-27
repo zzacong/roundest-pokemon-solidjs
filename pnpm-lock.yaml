@@ -3,10 +3,10 @@ lockfileVersion: 5.4
 specifiers:
   '@prisma/client': ^4.6.1
   '@solidjs/router': ^0.5.1
-  '@tanstack/solid-query': ^4.15.1
-  '@trpc/client': ^10.2.0
-  '@trpc/next': ^10.2.0
-  '@trpc/server': ^10.2.0
+  '@tanstack/solid-query': ^4.18.0
+  '@trpc/client': ^10.3.0
+  '@trpc/next': ^10.3.0
+  '@trpc/server': ^10.3.0
   '@types/node': ^18.11.9
   '@vercel/node': ^2.6.4
   autoprefixer: ^10.4.13
@@ -27,13 +27,13 @@ specifiers:
 dependencies:
   '@prisma/client': 4.6.1_prisma@4.6.1
   '@solidjs/router': 0.5.1_solid-js@1.6.2
-  '@tanstack/solid-query': 4.15.1_solid-js@1.6.2
-  '@trpc/client': 10.2.0_@trpc+server@10.2.0
-  '@trpc/next': 10.2.0_5dvn2bvhzjzvyfcqzgzjazwuyi
-  '@trpc/server': 10.2.0
+  '@tanstack/solid-query': 4.18.0_solid-js@1.6.2
+  '@trpc/client': 10.3.0_@trpc+server@10.3.0
+  '@trpc/next': 10.3.0_7lmzib6fvb2ak7xfxwf4mflj4u
+  '@trpc/server': 10.3.0
   clsx: 1.2.1
   solid-js: 1.6.2
-  solid-trpc: 0.0.11-rc.2_lrcy62r7p7wpyr43gsr4aaidjq
+  solid-trpc: 0.0.11-rc.2_ppmsgudlahwbr25bmdagrtdv24
   zod: 3.19.1
 
 devDependencies:
@@ -500,45 +500,45 @@ packages:
       solid-js: 1.6.2
     dev: false
 
-  /@tanstack/query-core/4.15.1:
-    resolution: {integrity: sha512-+UfqJsNbPIVo0a9ANW0ZxtjiMfGLaaoIaL9vZeVycvmBuWywJGtSi7fgPVMCPdZQFOzMsaXaOsDtSKQD5xLRVQ==}
+  /@tanstack/query-core/4.18.0:
+    resolution: {integrity: sha512-PP4mG8MD08sq64RZCqMfXMYfaj7+Oulwg7xZ/fJoEOdTZNcPIgaOkHajZvUBsNLbi/0ViMvJB4cFkL2Jg2WPbw==}
     dev: false
 
-  /@tanstack/solid-query/4.15.1_solid-js@1.6.2:
-    resolution: {integrity: sha512-MIPpid1k1Gr8EqHsgnoqx3AKin7ChH7li0etRklBr09OG30Y40wBco1mM9pXYN85Jy7tmuW6MwDH1o8+e6UKpA==}
+  /@tanstack/solid-query/4.18.0_solid-js@1.6.2:
+    resolution: {integrity: sha512-JldYn+7P7cZStdTsxodJ+CUV2IbHiRNSLTKvY1bEOtvrD5a26IIHfqtpUrHDuwmHKtCOk5C5UjKnqrPeGMc/Ig==}
     peerDependencies:
       solid-js: ^1.5.7
     dependencies:
-      '@tanstack/query-core': 4.15.1
+      '@tanstack/query-core': 4.18.0
       solid-js: 1.6.2
     dev: false
 
-  /@trpc/client/10.2.0_@trpc+server@10.2.0:
-    resolution: {integrity: sha512-Mehf6euqMzAak+Umay1LKol9nC716yBjHNqrF6blWY/n2hwSICrLXQwveNaHK7qjKXJ86b4aDW39KR02WCQP4A==}
+  /@trpc/client/10.3.0_@trpc+server@10.3.0:
+    resolution: {integrity: sha512-plZ/uNGVZ0tsMwJKjVLUzT7B1kGxa+TpLxZ9i9OfxKUpPnMtz0MSg8Qx2oHqTqbGgcmmekyusmTfLyNzym2ZlA==}
     peerDependencies:
-      '@trpc/server': 10.2.0
+      '@trpc/server': 10.3.0
     dependencies:
-      '@trpc/server': 10.2.0
+      '@trpc/server': 10.3.0
     dev: false
 
-  /@trpc/next/10.2.0_5dvn2bvhzjzvyfcqzgzjazwuyi:
-    resolution: {integrity: sha512-1zbZb9Xd6nYVZfgb6zNA6fLzZ5CWZjd7KYSUIWY0Bh7cVjDAmAtIj2wC3wcXWI7UsKntLIpvUB4XMEsFK/RxiQ==}
+  /@trpc/next/10.3.0_7lmzib6fvb2ak7xfxwf4mflj4u:
+    resolution: {integrity: sha512-d8+c5SsAnE0v6ZSTYZwp+OomTI8MkJUf4yoH8WvOwM6HWR1z00ua8Jdp7jfu+RkJJIcDGi+NgDDOjaLvB5RR2w==}
     peerDependencies:
       '@tanstack/react-query': ^4.3.8
-      '@trpc/client': 10.2.0
+      '@trpc/client': 10.3.0
       '@trpc/react-query': ^10.0.0-proxy-beta.21
-      '@trpc/server': 10.2.0
+      '@trpc/server': 10.3.0
       next: '*'
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
-      '@trpc/client': 10.2.0_@trpc+server@10.2.0
-      '@trpc/server': 10.2.0
+      '@trpc/client': 10.3.0_@trpc+server@10.3.0
+      '@trpc/server': 10.3.0
       react-ssr-prepass: 1.5.0
     dev: false
 
-  /@trpc/server/10.2.0:
-    resolution: {integrity: sha512-WGOA2bk6JOnOywUu1gkAgwqnxZ5g+vNkL9EpCGLgKYwwMcjAwgNRgYzLPsDsR1XL48wmdYOzfWzJ0G575+g/jA==}
+  /@trpc/server/10.3.0:
+    resolution: {integrity: sha512-PdSSmO9vBeWKdVhr3WHUPAPscOLLY+M6G7CL1AqjNL1grTOiB0bN1bvb4/D9qAdgwWB8qZOLb7WeuAudyD4FpQ==}
     dev: false
 
   /@ts-morph/common/0.11.1:
@@ -2109,7 +2109,7 @@ packages:
       solid-js: 1.6.2
     dev: true
 
-  /solid-trpc/0.0.11-rc.2_lrcy62r7p7wpyr43gsr4aaidjq:
+  /solid-trpc/0.0.11-rc.2_ppmsgudlahwbr25bmdagrtdv24:
     resolution: {integrity: sha512-hmxf1svB6qf40t81WFMT9329Je7T+hF0/kfLZH/XSkT3jtzjjI8PeZMjc3CRFpMY/BubQQ0gWCFpUhxvlnNl+w==}
     peerDependencies:
       '@tanstack/solid-query': ^4.6.1
@@ -2117,9 +2117,9 @@ packages:
       '@trpc/server': ^10.0.0-rc.2
       solid-js: ^1.5.3
     dependencies:
-      '@tanstack/solid-query': 4.15.1_solid-js@1.6.2
-      '@trpc/client': 10.2.0_@trpc+server@10.2.0
-      '@trpc/server': 10.2.0
+      '@tanstack/solid-query': 4.18.0_solid-js@1.6.2
+      '@trpc/client': 10.3.0_@trpc+server@10.3.0
+      '@trpc/server': 10.3.0
       solid-js: 1.6.2
     dev: false
 
